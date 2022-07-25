@@ -84,11 +84,16 @@ class Poly:
         self.term_list.append(Term(coef,Exp))
     def create_random(self):
         for _ in range(self.size):
-            coef = random.choice(range(5))
+            coef = random.choice(range(1,5))
             Exp = random.choice(range(5))
             self.create(coef,Exp)
     def Display(self):
-        
+        for value in self.term_list:
+            print(value.coef,value.Exp, sep='^')
+poly = Poly(4)
+poly.create_random()
+poly.Display()
+
 
 
         
