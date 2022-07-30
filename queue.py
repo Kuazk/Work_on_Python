@@ -41,19 +41,4 @@ class Queue:
         for i in self.arr:
             print(f'{i}', end = ' ')
 
-queued = Queue(10)
-queued.enqueue(1)
-queued.enqueue(2)
-queued.enqueue(3)
-queued.enqueue(2)
-queued.enqueue(1)
 
-count = 1
-queued.Display()
-print('')
-while count <99:
-    count +=1 
-    queued.enqueue(queued.dequeue())
-    queued.Display()
-    print('')
-    time.sleep(0.5)
