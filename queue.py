@@ -21,18 +21,14 @@ class Queue:
             self.rear +=1
             self.arr[self.rear] = value
         else: 
-            self.rear +=1
-            if self.rear == self.size:
-                self.rear = 0
+            self.rear = (self.rear + 1) % self.size
             self.arr[self.rear] = value
         return True
 
     def dequeue(self):
         if self.isEmpty():
             return -1
-        self.front += 1 #
-        if self.front == self.size:
-            self.front =0
+        self.front = (self.front +1) % self.size
         x = self.arr[self.front]
         self.arr[self.front] = '_'
         return x
@@ -41,4 +37,21 @@ class Queue:
         for i in self.arr:
             print(f'{i}', end = ' ')
 
+queued = Queue(40)
+queued.enqueue('L')
+queued.enqueue('O')
+queued.enqueue('O')
+queued.enqueue('S')
+queued.enqueue('E')
+queued.enqueue('E')
+queued.enqueue('R')
 
+count = 1
+queued.Display()
+print('')
+while count <999:
+    count +=1 
+    queued.enqueue(queued.dequeue())
+    queued.Display()
+    print('')
+    time.sleep(0.1)
